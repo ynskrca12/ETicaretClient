@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { CustomToastrService, ToastrMessageType, ToastrPositon } from './services/ui/custom-toastr.service';
 
 declare var $:any
 
@@ -11,7 +11,7 @@ declare var $:any
 export class AppComponent {
   title = 'ETicaretClient';
 
-  constructor(){
-
+  constructor(private toastrService: CustomToastrService){
+    toastrService.message("merhaba","kırca",{messageType:ToastrMessageType.Info,position:ToastrPositon.TopCenter})
   }
 }
