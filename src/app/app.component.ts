@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+
 
 declare var $:any
 
@@ -11,7 +11,7 @@ declare var $:any
 export class AppComponent {
   title = 'ETicaretClient';
 
-  constructor(private toastr: ToastrService){
-    this.toastr.success('Hello world!', 'Toastr fun!');
+  constructor(){
+
   }
 }
