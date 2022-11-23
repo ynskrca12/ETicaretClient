@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Create_Product } from 'src/app/contracts/create_ product';
 import { ProductService } from '../../../../services/common/models/product.service';
 import { AlertifyService, MessageType, Position } from 'src/app/services/admin/alertify.service';
@@ -16,6 +16,8 @@ export class CreateComponent  implements OnInit {
 
   ngOnInit(): void {
   }
+
+  @Output() createdProduct: EventEmitter<Create_Product> = new EventEmitter()
 
   create(name: HTMLInputElement, stock: HTMLInputElement, price: HTMLInputElement){
 
@@ -39,6 +41,7 @@ export class CreateComponent  implements OnInit {
         messageType: MessageType.Success,
         position:Position.TopRight
       })
+      this.createdProduct.emit(create_product)
     },errorMessage => {
       this.alertify.message(errorMessage,
         {
